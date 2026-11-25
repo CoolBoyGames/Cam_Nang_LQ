@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f4f6fb;
+  --bg-elevated: #ffffff;
+  --card: #ffffff;
+  --card-hover: #f8faff;
+  --ink: #0f172a;
+  --mut: #475569;
+  --bd: #e2e8f0;
+  --gold: #b45309;
+  --gold-soft: rgba(180, 83, 9, 0.12);
+  --primary: #6d28d9;
+  --primary-soft: rgba(109, 40, 217, 0.1);
+  --accent: #e11d48;
+  --hero1: #111836;
+  --hero2: #2e1065;
+
+  --def: #dbeafe;
+  --defi: #1e40af;
+  --ten: #d1fae5;
+  --teni: #065f46;
+  --mr: #ede9fe;
+  --mri: #5b21b6;
+  --heal: #ffe4e6;
+  --heali: #9f1239;
+  --pen: #fef3c7;
+  --peni: #92400e;
+  --oth: #f1f5f9;
+  --othi: #334155;
+
+  --font-display: "Chakra Petch", system-ui, -apple-system, sans-serif;
+  --font-body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b0e1a;
+    --bg-elevated: #11162b;
+    --card: #141a2e;
+    --card-hover: #1a223b;
+    --ink: #f1f5f9;
+    --mut: #94a3b8;
+    --bd: rgba(148, 163, 184, 0.16);
+    --gold: #f59e0b;
+    --gold-soft: rgba(245, 158, 11, 0.14);
+    --primary: #8b5cf6;
+    --primary-soft: rgba(139, 92, 246, 0.18);
+    --accent: #f43f5e;
+    --hero1: #090d1f;
+    --hero2: #24104b;
+
+    --def: rgba(59, 130, 246, 0.18);
+    --defi: #93c5fd;
+    --ten: rgba(16, 185, 129, 0.18);
+    --teni: #6ee7b7;
+    --mr: rgba(139, 92, 246, 0.22);
+    --mri: #c4b5fd;
+    --heal: rgba(244, 63, 94, 0.2);
+    --heali: #fda4af;
+    --pen: rgba(245, 158, 11, 0.18);
+    --peni: #fcd34d;
+    --oth: rgba(148, 163, 184, 0.14);
+    --othi: #cbd5e1;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b0e1a;
+  --bg-elevated: #11162b;
+  --card: #141a2e;
+  --card-hover: #1a223b;
+  --ink: #f1f5f9;
+  --mut: #94a3b8;
+  --bd: rgba(148, 163, 184, 0.16);
+  --gold: #f59e0b;
+  --gold-soft: rgba(245, 158, 11, 0.14);
+  --primary: #8b5cf6;
+  --primary-soft: rgba(139, 92, 246, 0.18);
+  --accent: #f43f5e;
+  --hero1: #090d1f;
+  --hero2: #24104b;
+
+  --def: rgba(59, 130, 246, 0.18);
+  --defi: #93c5fd;
+  --ten: rgba(16, 185, 129, 0.18);
+  --teni: #6ee7b7;
+  --mr: rgba(139, 92, 246, 0.22);
+  --mri: #c4b5fd;
+  --heal: rgba(244, 63, 94, 0.2);
+  --heali: #fda4af;
+  --pen: rgba(245, 158, 11, 0.18);
+  --peni: #fcd34d;
+  --oth: rgba(148, 163, 184, 0.14);
+  --othi: #cbd5e1;
+}
+
+@layer base {
+  html {
+    scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  a, button, input, select {
+    transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  margin: 28px 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.item-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.item-badge svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.cat-def { background: var(--def); color: var(--defi); }
+.cat-ten { background: var(--ten); color: var(--teni); }
+.cat-mr { background: var(--mr); color: var(--mri); }
+.cat-heal { background: var(--heal); color: var(--heali); }
+.cat-pen { background: var(--pen); color: var(--peni); }
+.cat-oth { background: var(--oth); color: var(--othi); }
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  border: 1px solid var(--bd);
+  background: var(--bg);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.hero-chip:hover {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+}
+
+.hero-card {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-top: 3px solid var(--gold);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 20px -6px rgba(15, 23, 42, 0.12);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(124, 58, 237, 0.22);
+}
+
+.hero-card.hl {
+  box-shadow: 0 0 0 2px var(--gold), 0 12px 28px -8px rgba(245, 158, 11, 0.35);
+}
+
+.panel-box {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 20px -6px rgba(15, 23, 42, 0.08);
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--bd);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.pill-btn:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.pill-btn.on {
+  background: var(--gold);
+  color: #0f172a;
+  border-color: var(--gold);
+  font-weight: 600;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
